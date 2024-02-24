@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents</title>
+</head>
+<style>
+    
+    body { 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+    
+        align-items: center; 
+        min-height: 50vh; 
+    } 
+    
+    
+    </style>
+
+
+
+<body>
+    <script>
+        function diceG() {
+            var x = Math.random();
+            x = Math.floor(x * 6) + 1;
+            document.getElementById("t1").innerText = x;
+        }
+
+        function captchaG() {
+            var x = Math.floor(Math.random() * (999 - 100)) + 100;
+            var c = String.fromCharCode(Math.floor(Math.random() * (123 - 97)) + 97);
+            document.getElementById("t2").innerText = c + x + c;
+        }
+
+        function dessertG() {
+            const menu = ["Gajar Halwa", "Pastry", "Cheesecake", "Chocolate", "Muffin", "Gulab Jamun", "Rasmalai"];
+            var x = Math.floor(Math.random() * 7);
+            document.getElementById("t3").innerText = menu[x];
+        }
+
+        function RPSG(playerChoice) {
+            const choices = ["Rock", "Paper", "Scissors"];
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+            const result = getResult(playerChoice, computerChoice);
+
+            document.getElementById("t4").innerText = `Computer's choice was ${computerChoice}. ${result}`;
+        }
+
+        function getResult(player, computer) {
+            if (player === computer) return "It's a tie!";
+            if ((player === "Rock" && computer === "Scissors") ||
+                (player === "Paper" && computer === "Rock") ||
+                (player === "Scissors" && computer === "Paper")) {
+                return "7 Crore!";
+            } else {
+                return "Aap haar gye :( ";
+            }
+        }
+        function massbunkG() {
+            const menu = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+            var x = Math.floor(Math.random() * 5);
+            document.getElementById("t5").innerText = menu[x];
+        }
+
+        </script>
+    <style>
+        button {
+            background-color: #f4511e;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            font-size: 12px;
+            margin: 4px 2px;
+            opacity: 1;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.6
+        }
+
+        table {
+            background-color: bisque;
+        }
+
+        
+    </style>
+
+    <center>
+        <table border="1">
+            <tr>
+                <th>Name of Game</th>
+                <th>Action</th>
+                <th>Output</th>
+            </tr>
+            <tr>
+                <td>Dice</td>
+                <td>
+                    <center><img src="./images/diceroll.gif" width="200px" onclick="diceG()">
+                </td>
+                <td>
+                    <h1 id="t1"></h1>
+                </td>
+            </tr>
+            <tr>
+                <td>Captcha</td>
+                <td>
+                    <center><button onclick="captchaG()">Click</button>
+                </td>
+                <td>
+                    <h1 id="t2"></h1>
+                </td>
+            </tr>
+            <tr>
+                <td>Kuch Meetha Ho Jaye</td>
+                <td>
+                    <center><button onclick="dessertG()">Click</button>
+                </td>
+                <td>
+                    <h1 id="t3"></h1>
+                </td>
+            </tr>
+            <tr>
+                <td>Rock-Paper-Scissors</td>
+                <td>
+                    <img src="./images/rock.gif" width="150px" onclick="RPSG('Rock')">
+                    <img src="./images/paper.gif" width="150px" onclick="RPSG('Paper')">
+                    <img src="./images/scissor.gif" width="150px" onclick="RPSG('Scissors')">
+                </td>
+                <td>
+                    <h1 id="t4"></h1>
+                </td>
+            </tr>
+            <tr>
+                <td>Mass Bunk Day</td>
+                <td>
+                    <center><button onclick="massbunkG()">Click</button>
+                </td>
+                <td>
+                    <h1 id="t5"></h1>
+                </td>
+            </tr>
+            
+        </table>
+</body>
+
+</html>
